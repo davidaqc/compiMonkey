@@ -1,0 +1,70 @@
+BNF GRAMMAR FOR CODEMONKEY
+-------------------------
+
+Rule 0     S' -> statement_list
+Rule 1     statement_list -> statement
+Rule 2     statement_list -> statement_list statement
+Rule 3     statement -> identifier
+Rule 4     statement -> expression
+Rule 5     statement -> if_statement
+Rule 6     statement -> turn
+Rule 7     statement -> step
+Rule 8     turn -> TURN LEFT
+Rule 9     turn -> TURN RIGHT
+Rule 10    turn -> TURN NUM_INT
+Rule 11    turn -> expression POINT TURNTO expression
+Rule 12    turn -> TURNTO BANANA LSQBRACK NUM_INT RSQBRACK
+Rule 13    turn -> TURNTO BANANA LSQBRACK expression RSQBRACK
+Rule 14    turn -> TURNTO MATCH LSQBRACK NUM_INT RSQBRACK
+Rule 15    turn -> TURNTO MATCH LSQBRACK expression RSQBRACK
+Rule 16    turn -> TURNTO expression
+Rule 17    step -> STEP expression
+Rule 18    step -> STEP MINUS expression
+Rule 19    step -> STEP DISTANCETO expression
+Rule 20    step -> expression POINT STEP expression
+Rule 21    step -> BEAVER LSQBRACK NUM_INT RSQBRACK POINT STEP expression
+Rule 22    step -> TURTLE LSQBRACK NUM_INT RSQBRACK POINT STEP expression
+Rule 23    step -> STEP DISTANCETO BANANA LSQBRACK NUM_INT RSQBRACK
+Rule 24    step -> STEP DISTANCETO BANANA LSQBRACK expression RSQBRACK
+Rule 25    step -> STEP DISTANCETO MATCH LSQBRACK NUM_INT RSQBRACK
+Rule 26    step -> STEP DISTANCETO MATCH LSQBRACK expression RSQBRACK
+Rule 27    identifier -> IDENTIFIER
+Rule 28    primitive -> NUM_INT
+Rule 29    primitive -> boolean
+Rule 30    expression -> expression PLUS expression
+Rule 31    expression -> expression MINUS expression
+Rule 32    boolean -> boolean AND boolean
+Rule 33    boolean -> boolean OR boolean
+Rule 34    boolean -> expression EQ expression
+Rule 35    boolean -> expression GT expression
+Rule 36    boolean -> expression LT expression
+Rule 37    expression -> NOT expression
+Rule 38    boolean -> TRUE
+Rule 39    boolean -> FALSE
+Rule 40    assignable -> primitive
+Rule 41    assignable -> expression
+Rule 42    arguments -> arguments COMMA expression
+Rule 43    arguments -> expression
+Rule 44    arguments -> <empty>
+Rule 45    expression -> LSQBRACK arguments RSQBRACK
+Rule 46    expression -> identifier LSQBRACK expression RSQBRACK
+Rule 47    statement -> identifier LSQBRACK expression RSQBRACK EQUALS expression
+Rule 48    expression -> identifier EQUALS assignable
+Rule 49    if_statement -> IF expression statement_list COMMA
+Rule 50    if_statement -> IF expression statement_list ELSE statement_list COMMA
+Rule 51    statement -> SAY LPAREN RPAREN
+Rule 52    statement -> SEE LPAREN RPAREN
+Rule 53    statement -> HEALTH LPAREN RPAREN
+Rule 54    expression -> primitive
+Rule 55    expression -> identifier
+Rule 56    statement -> expression POINT TIMES ARROW_LTR statement_list COMMA
+Rule 57    statement -> FOR identifier IN BANANAS statement_list COMMA
+Rule 58    statement -> FOR identifier IN TURTLES statement_list COMMA
+Rule 59    statement -> FOR identifier IN CROCODILES statement_list COMMA
+Rule 60    statement -> FOR identifier IN MATCHES statement_list COMMA
+Rule 61    statement -> UNTIL expression statement_list COMMA
+Rule 62    statement -> UNTIL NEAR BANANA statement_list COMMA
+Rule 63    statement -> identifier EQUALS LPAREN arguments RPAREN ARROW_LTR statement_list COMMA
+Rule 64    statement -> RETURN expression
+Rule 65    statement -> identifier arguments COMMA
+Rule 66    expression -> identifier LPAREN arguments RPAREN

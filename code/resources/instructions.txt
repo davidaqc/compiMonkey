@@ -1,0 +1,166 @@
+
+---------- Level 0 ----------------
+3.times ->
+	step 32
+	turn right
+,
+---------- Level 1 ----------------
+4.times ->
+     step 20
+     step -20
+     turn right
+,
+---------- Level 2 ----------------
+x = 17
+n = 15
+step x
+2.times ->
+     turtle[0].step n
+     step n
+     step -n
+,
+---------- Level 3 ----------------
+d = 0
+3.times ->
+	turnTo banana[d]
+	step distanceTo banana[d]
+	d = d + 1
+,
+---------- Level 4 ----------------
+beaver[1].step 23
+step distanceTo banana[2]
+beaver[0].step 23
+step distanceTo banana[1]
+turnTo banana[0]
+step distanceTo banana[0]
+---------- Level 5 ----------------
+for i in bananas
+	turnTo i
+     step distanceTo i
+,
+---------- Level 6 ----------------
+x = 40
+for i in turtles
+	i.step x
+,
+step distanceTo banana[0]
+---------- Level 7 ----------------
+for b in bananas
+     for q in crocodiles
+          q.turnTo b
+     ,
+     turnTo b
+     step distanceTo b
+,
+---------- Level 8 ----------------
+goto = (n) ->
+     turnTo n
+     step distanceTo n
+,
+collect = (e) ->
+     goto e,
+,
+for m in matches
+     collect m,
+,
+---------- Level 9 ----------------
+x = 1
+until near match
+	step x
+	turn right
+	step x
+	turn left
+	x = x + 1
+,
+say()
+step 10
+turn right
+step 10
+---------- FIN --------------------
+// near infinito
+until near match
+     step 10
+     turn left
+,
+// near exitoso
+until near match
+	step 30
+	turn right
+,
+// until condicion
+x = 0
+y = 0
+until x < 2
+     step 10
+     x = x + 1
+     y = y + 1
+,
+turn right
+step 10
+-----------------------------------
+// If ==, >, <
+x = 10
+if x == 0
+     turn left
+     step -10
+,
+// If-Else ==, >, <
+if x == 0
+     turn left
+     step -10
+else
+     turn right
+     step 10
+,
+// If-Else not ==, >, <
+if not x == 1
+     turn right
+     step 10
+,
+// If and, or
+a = 10
+b = 20
+c = 30
+if a==10 or b==20 and c==30
+     step 10
+,
+----------------------------------
+// funciones
+say()
+see()
+health()
+-------------------------------
+// Sin parametros
+functionA = () ->
+     step 10
+     turn left
+,
+2.times ->
+     functionA()
+,
+// Con parametros
+functionB = (e, f, g) ->
+     step e
+     step f
+     step g
+,
+2.times ->
+     functionB 10, -10, 10,
+,
+-------------------------------
+// Return en variable
+functionC = (e) ->
+     m = e + 1
+     ret m
+,
+x = functionC(4)
+step x
+// Return en If
+functionD= (e) ->
+     m = e + 1
+     ret m > 0
+,
+if functionD(4)
+     step 10
+,
+--------- FIN 2 --------------
